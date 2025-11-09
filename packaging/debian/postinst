@@ -1,0 +1,19 @@
+#!/bin/sh
+#DEBHELPER#
+
+set -e
+
+case "$1" in
+    configure)
+        # Restart nautilus to load the extension
+        if [ -x "$(command -v nautilus)" ]; then
+            nautilus -q >/dev/null 2>&1 || true
+        fi
+        
+        echo "Image Resizer Nautilus Extension installed successfully!"
+        echo "You can now right-click on image files to resize them."
+    ;;
+esac
+
+#DEBHELPER#
+exit 0

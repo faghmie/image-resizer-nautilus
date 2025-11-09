@@ -1,0 +1,4 @@
+[console_scripts]
+image-resizer-gui = image_resizer_nautilus.image_resizer:main
+image-resizer-setup = image_resizer_nautilus.extension_setup:main
+image-resizer-uninstall = image_resizer_nautilus.uninstall:main

@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_auto_install:
+	dh_auto_install
+	# Install nautilus extension
+	mkdir -p debian/image-resizer-nautilus/usr/share/nautilus-python/extensions
+	ln -sf ../../../lib/python3/dist-packages/image_resizer_nautilus/nautilus_extension.py \
+		debian/image-resizer-nautilus/usr/share/nautilus-python/extensions/image-resizer-extension.py
+
+override_dh_python3:
+	dh_python3

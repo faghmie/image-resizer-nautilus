@@ -1,0 +1,6 @@
+PyGObject>=3.38.0
+
+[dev]
+build
+twine
+wheel

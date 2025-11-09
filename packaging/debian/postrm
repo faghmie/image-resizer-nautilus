@@ -1,0 +1,16 @@
+#!/bin/sh
+#DEBHELPER#
+
+set -e
+
+case "$1" in
+    remove|purge)
+        # Restart nautilus to unload the extension
+        if [ -x "$(command -v nautilus)" ]; then
+            nautilus -q >/dev/null 2>&1 || true
+        fi
+    ;;
+esac
+
+#DEBHELPER#
+exit 0

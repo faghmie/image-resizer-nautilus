@@ -1,0 +1,28 @@
+Source: image-resizer-nautilus
+Section: gnome
+Priority: optional
+Maintainer: Your Name <your.email@example.com>
+Build-Depends: debhelper-compat (= 13), dh-python, python3-all, python3-setuptools
+Standards-Version: 4.6.2
+Homepage: https://github.com/yourusername/image-resizer-nautilus
+Vcs-Browser: https://github.com/yourusername/image-resizer-nautilus
+Vcs-Git: https://github.com/yourusername/image-resizer-nautilus.git
+
+Package: image-resizer-nautilus
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends},
+         nautilus,
+         python3-nautilus,
+         python3-gi,
+         imagemagick,
+         python3-pil
+Description: Nautilus extension for resizing images with right-click menu
+ A context menu extension for Nautilus file manager that allows
+ users to resize images through a simple GUI interface.
+ .
+ Features:
+  * Right-click integration in Nautilus
+  * Multiple resize options and presets
+  * Aspect ratio locking
+  * Format conversion support
+  * Modern GTK4 interface
