@@ -8,7 +8,7 @@ version = "1.0.0"
 description = "Nautilus extension for resizing images with right-click menu"
 readme = {file = "README.md", content-type = "text/markdown"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"},
+    {name = "Faghmie Davids", email = "faghmie@gmail.com"},
 ]
 license = {text = "GPL-3.0-only"}
 classifiers = [
@@ -34,7 +34,7 @@ image-resizer-setup = "image_resizer_nautilus.extension_setup:main"
 image-resizer-uninstall = "image_resizer_nautilus.uninstall:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/image-resizer-nautilus"
+Homepage = "https://github.com/faghmie/image-resizer-nautilus"
 
 [tool.setuptools]
 packages = {find = {where = ["src"]}}

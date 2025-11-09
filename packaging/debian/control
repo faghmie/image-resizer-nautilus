@@ -1,12 +1,12 @@
 Source: image-resizer-nautilus
 Section: gnome
 Priority: optional
-Maintainer: Your Name <your.email@example.com>
+Maintainer: Faghmie Davids <faghmie@gmail.com>
 Build-Depends: debhelper-compat (= 13), dh-python, python3-all, python3-setuptools
 Standards-Version: 4.6.2
-Homepage: https://github.com/yourusername/image-resizer-nautilus
-Vcs-Browser: https://github.com/yourusername/image-resizer-nautilus
-Vcs-Git: https://github.com/yourusername/image-resizer-nautilus.git
+Homepage: https://github.com/faghmie/image-resizer-nautilus
+Vcs-Browser: https://github.com/faghmie/image-resizer-nautilus
+Vcs-Git: https://github.com/faghmie/image-resizer-nautilus.git
 
 Package: image-resizer-nautilus
 Architecture: all

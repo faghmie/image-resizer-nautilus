@@ -2,7 +2,6 @@
 
 A powerful Nautilus file manager extension that adds a right-click context menu option to resize images with a modern GTK4 interface.
 
-![Demo](https://via.placeholder.com/800x400/2D3748/FFFFFF?text=Image+Resizer+Nautilus+Extension)
 
 ## Features
 
@@ -59,7 +58,7 @@ image-resizer-setup
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/image-resizer-nautilus
+git clone https://github.com/faghmie/image-resizer-nautilus
 cd image-resizer-nautilus
 
 # Install the package
@@ -72,7 +71,7 @@ image-resizer-setup
 ### Method 3: Using Install Script (Development)
 
 ```bash
-git clone https://github.com/yourusername/image-resizer-nautilus
+git clone https://github.com/faghmie/image-resizer-nautilus
 cd image-resizer-nautilus
 
 # Run the install script (handles everything)
@@ -175,7 +174,7 @@ sudo zypper install imagemagick
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/image-resizer-nautilus
+git clone https://github.com/faghmie/image-resizer-nautilus
 cd image-resizer-nautilus
 
 # Install in development mode

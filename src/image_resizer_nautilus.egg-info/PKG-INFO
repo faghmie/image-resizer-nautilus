@@ -2,11 +2,11 @@ Metadata-Version: 2.4
 Name: image-resizer-nautilus
 Version: 1.0.0
 Summary: Nautilus extension for resizing images with right-click menu
-Home-page: https://github.com/yourusername/image-resizer-nautilus
-Author: Your Name
-Author-email: Your Name <your.email@example.com>
+Home-page: https://github.com/faghmie/image-resizer-nautilus
+Author: Faghmie Davids
+Author-email: Faghmie Davids <faghmie@gmail.com>
 License: GPL-3.0-only
-Project-URL: Homepage, https://github.com/yourusername/image-resizer-nautilus
+Project-URL: Homepage, https://github.com/faghmie/image-resizer-nautilus
 Keywords: nautilus,extension,image,resize
 Classifier: Development Status :: 4 - Beta
 Classifier: Environment :: GNOME
@@ -30,6 +30,8 @@ Dynamic: requires-python
 # Image Resizer Nautilus Extension
 
 A powerful Nautilus file manager extension that adds a right-click context menu option to resize images with a modern GTK4 interface.
+
+![Demo](https://via.placeholder.com/800x400/2D3748/FFFFFF?text=Image+Resizer+Nautilus+Extension)
 
 ## Features
 
@@ -61,86 +63,54 @@ A powerful Nautilus file manager extension that adds a right-click context menu 
 **Essential:**
 - `nautilus` - GNOME file manager
 - `python3` - Python 3.6 or higher
-- `nautilus-python` - Python extension support for Nautilus
 - `python3-gi` - Python GObject introspection
 - `imagemagick` - Image processing backend
 
-**Python Dependencies:**
-- `PyGObject` >= 3.38.0 - GTK4 bindings
+**Optional:**
+- `nautilus-python` - Python extension support (usually included with Nautilus)
+
+### Python Dependencies
+- `PyGObject` >= 3.38.0 - GTK4 bindings (automatically installed)
 
 ## Installation
 
-### Method 1: PIP Installation (Recommended)
+### Method 1: From PyPI (Recommended)
+
+```bash
+# Install the package
+pip install --user image-resizer-nautilus
+
+# Set up the nautilus extension
+image-resizer-setup
+```
+
+### Method 2: From Source
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/image-resizer-nautilus
+git clone https://github.com/faghmie/image-resizer-nautilus
 cd image-resizer-nautilus
-
-# Install using pip
-pip3 install --user .
-```
-
-### Method 2: Using Install Script
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/image-resizer-nautilus
-cd image-resizer-nautilus
-
-# Make script executable and run
-chmod +x install.sh
-./install.sh
-```
-
-### Method 3: Manual Installation
-
-```bash
-# Install system dependencies (Ubuntu/Debian)
-sudo apt update
-sudo apt install nautilus-python python3-gi python3-pip imagemagick
-
-# Install Python dependencies
-pip3 install --user PyGObject
-
-# Clone and install extension
-git clone https://github.com/yourusername/image-resizer-nautilus
-cd image-resizer-nautilus
-pip3 install --user .
-
-# Restart nautilus
-nautilus -q
-```
-
-### Method 4: Development Installation
-
-```bash
-# Install in development mode (editable)
-pip3 install --user -e .
-
-# Or use the develop command
-python3 setup.py develop --user
-```
-
-## Distribution Packages
-
-### Ubuntu/Debian
-```bash
-# Build Debian package
-dpkg-buildpackage -us -uc
 
 # Install the package
-sudo dpkg -i image-resizer-nautilus_1.0.0_all.deb
+pip install --user .
+
+# Set up the nautilus extension
+image-resizer-setup
 ```
 
-### PyPI Package
+### Method 3: Using Install Script (Development)
+
 ```bash
-# Build and upload to PyPI
-python3 setup.py sdist bdist_wheel
-twine upload dist/*
+git clone https://github.com/faghmie/image-resizer-nautilus
+cd image-resizer-nautilus
+
+# Run the install script (handles everything)
+python install.py
 ```
 
 ## Usage
+
+### Using Nautilus Integration
 
 1. **Open Nautilus** and navigate to any folder containing images
 2. **Right-click** on an image file (JPEG, PNG, WebP, etc.)
@@ -153,44 +123,56 @@ twine upload dist/*
 
 The resized image will be saved with "_resized" appended to the filename in the same directory.
 
+### Using Command Line
+
+You can also launch the resizer directly from the terminal:
+
+```bash
+image-resizer-gui /path/to/your/image.jpg
+```
+
 ## Uninstallation
 
-### Method 1: Using pip (Recommended)
-```bash
-pip3 uninstall image-resizer-nautilus
-```
+### Complete Removal
 
-### Method 2: Using the uninstall script
 ```bash
-./uninstall.sh
-```
-
-### Method 3: Using the console script
-```bash
+# Remove the nautilus extension
 image-resizer-uninstall
+
+# Uninstall the Python package
+pip uninstall image-resizer-nautilus
 ```
 
-### Method 4: Manual removal
+### Quick Uninstall
+
 ```bash
-# Remove the symlink
-rm ~/.local/share/nautilus-python/extensions/image-resizer-extension.py
-
-# Or for system-wide installation
-sudo rm /usr/share/nautilus-python/extensions/image-resizer-extension.py
-
-# Restart nautilus
-nautilus -q
+# Run the complete uninstall script (if available from source)
+./complete-uninstall.sh
 ```
 
 ## Troubleshooting
 
 ### Extension not appearing in context menu?
-1. Ensure all dependencies are installed
-2. Restart nautilus: `nautilus -q`
-3. Check if the extension file exists: `ls ~/.local/share/nautilus-python/extensions/`
+
+1. **Run the setup command:**
+   ```bash
+   image-resizer-setup
+   ```
+
+2. **Restart Nautilus:**
+   ```bash
+   nautilus -q
+   ```
+
+3. **Check the extension symlink:**
+   ```bash
+   ls -la ~/.local/share/nautilus-python/extensions/image-resizer-extension.py
+   ```
 
 ### "ImageMagick not found" error?
+
 Install ImageMagick on your system:
+
 ```bash
 # Ubuntu/Debian
 sudo apt install imagemagick
@@ -200,53 +182,90 @@ sudo dnf install ImageMagick
 
 # Arch Linux
 sudo pacman -S imagemagick
+
+# openSUSE
+sudo zypper install imagemagick
 ```
 
-### Permission errors during installation?
-- Use `sudo` for system-wide installation
-- Or use `--user` flag with pip for user installation
-- Ensure you have write permissions to the nautilus extensions directory
+### Permission errors?
+
+- Use `--user` flag with pip for user installation
+- For system-wide installation, use `sudo pip install` (not recommended)
 
 ### Resize operation fails?
+
 - Check that the source image file is not corrupted
 - Ensure you have write permissions to the destination directory
 - Verify ImageMagick can process the image format
 
-## Project Structure
+## Development
+
+### Building from Source
+
+```bash
+# Clone the repository
+git clone https://github.com/faghmie/image-resizer-nautilus
+cd image-resizer-nautilus
+
+# Install in development mode
+pip install --user -e .
+
+# Build distribution packages
+python -m build
+```
+
+### Project Structure
 
 ```
 image-resizer-nautilus/
-├── setup.py              # Package installation script
-├── install.sh            # Installation helper script
-├── uninstall.sh          # Uninstallation helper script
-├── README.md             # This file
-├── LICENSE               # License file
-└── src/
-    └── image_resizer_nautilus/
-        ├── __init__.py           # Package initialization
-        ├── nautilus_extension.py # Nautilus context menu provider
-        └── image_resizer.py      # Main resize application
+├── src/image_resizer_nautilus/
+│   ├── __init__.py              # Package initialization
+│   ├── nautilus_extension.py    # Nautilus context menu provider
+│   ├── image_resizer.py         # Main resize application
+│   ├── extension_setup.py       # Setup script
+│   └── uninstall.py            # Uninstall script
+├── setup.py                    # Package configuration
+├── pyproject.toml             # Modern packaging config
+└── README.md                  # This file
 ```
 
-## Development
+### Available Commands
 
-### Building from source
-```bash
-git clone https://github.com/yourusername/image-resizer-nautilus
-cd image-resizer-nautilus
-python3 setup.py build
-```
+- `image-resizer-gui` - Launch the resize dialog directly
+- `image-resizer-setup` - Set up the nautilus extension
+- `image-resizer-uninstall` - Remove the nautilus extension
 
-### Running tests
-```bash
-# Test the resizer directly
-python3 -m src.image_resizer_nautilus.image_resizer /path/to/test/image.jpg
+## FAQ
 
-# Check extension loading
-nautilus -q && nautilus .
-```
+### Why do I need to run `image-resizer-setup` after installation?
 
-### Contributing
+For security reasons, Python packages cannot automatically modify system files or create symlinks during installation. The setup command ensures the nautilus extension is properly configured.
+
+### Can I use this with other file managers?
+
+No, this extension is specifically designed for Nautilus (GNOME Files). Other file managers like Nemo, Thunar, or Dolphin would require different extensions.
+
+### How do I change the default output format?
+
+The output format is selected each time you resize an image. You can choose to keep the original format or convert to PNG, JPEG, or WebP.
+
+### Does this modify my original images?
+
+No, the original images are never modified. Resized images are saved as new files with "_resized" appended to the filename.
+
+## Support
+
+If you encounter issues:
+
+1. Check the troubleshooting section above
+2. Ensure all dependencies are installed
+3. Check the system logs for error messages
+4. Create an issue on GitHub with detailed information
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
+
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
@@ -257,20 +276,13 @@ nautilus -q && nautilus .
 
 This project is licensed under the GPL-3.0 License - see the LICENSE file for details.
 
-## Support
-
-If you encounter any issues or have questions:
-
-1. Check the troubleshooting section above
-2. Search existing GitHub issues
-3. Create a new issue with detailed information about your problem
-
 ## Acknowledgments
 
 - GNOME Project for Nautilus file manager
 - ImageMagick team for powerful image processing capabilities
 - GTK team for the excellent GUI toolkit
+- Python packaging community for distribution tools
 
 ---
 
-**Note**: This extension requires Nautilus with Python support. Most modern GNOME installations include this by default. If you're using a different file manager, this extension won't work.
+**Note**: This extension requires Nautilus with Python support. Most modern GNOME installations include this by default.

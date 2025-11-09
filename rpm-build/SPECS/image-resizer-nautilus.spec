@@ -4,7 +4,7 @@ Release:        3%{?dist}
 Summary:        Nautilus extension for resizing images with right-click menu
 
 License:        GPL-3.0+
-URL:            https://github.com/yourusername/image-resizer-nautilus
+URL:            https://github.com/faghmie/image-resizer-nautilus
 Source0:        %{name}-%{version}.tar.gz
 
 BuildArch:      noarch
@@ -61,11 +61,11 @@ fi
 %{_datadir}/nautilus-python/extensions/image-resizer-extension.py
 
 %changelog
-* Thu Nov 07 2024 Your Name <your.email@example.com> - 1.0.0-3
+* Thu Nov 07 2024 Faghmie Davids <faghmie@gmail.com> - 1.0.0-3
 - Fix symlink path to use exact Python version
 
-* Thu Nov 07 2024 Your Name <your.email@example.com> - 1.0.0-2
+* Thu Nov 07 2024 Faghmie Davids <faghmie@gmail.com> - 1.0.0-2
 - Fix nautilus extension symlink path
 
-* Thu Nov 07 2024 Your Name <your.email@example.com> - 1.0.0-1
+* Thu Nov 07 2024 Faghmie Davids <faghmie@gmail.com> - 1.0.0-1
 - Initial package release

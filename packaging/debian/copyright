@@ -1,10 +1,10 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: image-resizer-nautilus
-Upstream-Contact: Your Name <your.email@example.com>
-Source: https://github.com/yourusername/image-resizer-nautilus
+Upstream-Contact: Faghmie Davids <faghmie@gmail.com>
+Source: https://github.com/faghmie/image-resizer-nautilus
 
 Files: *
-Copyright: 2024 Your Name <your.email@example.com>
+Copyright: 2024 Faghmie Davids <faghmie@gmail.com>
 License: GPL-3.0+
 
 License: GPL-3.0+

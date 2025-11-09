@@ -26,7 +26,7 @@ image-resizer-nautilus (1.0.0-1) unstable; urgency=medium
 
   * Initial release.
 
- -- Your Name <your.email@example.com>  $(date -R)
+ -- Faghmie Davids <faghmie@gmail.com>  $(date -R)
 EOF
 fi
 
